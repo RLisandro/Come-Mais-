@@ -1,0 +1,31 @@
+{
+  "name": "crud_aluno",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "Lisandro Rezende",
+  "email": "rezendecazuza@gmil.com",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0",
+    "open": "^10.1.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RLisandro/Come-Mais-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RLisandro/Come-Mais-/issues"
+  },
+  "homepage": "https://github.com/RLisandro/Come-Mais-#readme",
+  "description": ""
+}
