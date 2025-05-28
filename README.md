@@ -1,8 +1,10 @@
 Projeto: Lancheria Come Mais
 
-Padrão de Projeto Utilizado:
-Abstract Factory - utilizado para permitir a criação de famílias de objetos relacionados (neste caso,
-itens de comida e dados de clientes) sem depender de suas classes concretas.
+1 Padrão Criacional Utilizado para app.js:
+Controll serve: Controlador trata requisições e chama funções de serviço
+
+2 Padrão Criacional Utilizado para o clientes.js e lanches.js:
+Modulo de serviço(Serve Layer):Camada de lógica de negócio separada das rotas ou controladores
 
 1 Padrão Estrutural utilizado:
 
@@ -20,13 +22,14 @@ Observer – notifica automaticamente componentes (por exemplo, um painel de ped
 
 Strategy – encapsula algoritmos de negócio como cálculo de descontos, formas de pagamento, ou regras de fidelidade, permitindo trocar a lógica sem alterar o sistema principal.
 
-Ferramenta de teste utilizada no projeto:
+Ferramenta de teste utilizada no projeto (clientes.js e lanches.js):
 
 Jest – framework de testes para JavaScript, fácil de configurar e ideal para validar funções dos módulos comidaFactory e clienteFactory.
 
 Descrição Geral do Sistema:
 O sistema da Lancheria Come Mais foi desenvolvido com foco na gestão de pedidos e clientes. Ele conta com dois módulos principais (CRUDs) integrados: um para gerenciar os dados das comidas e outro para gerenciar os dados dos clientes.
 Requisitos Funcionais:
+
 - Linguagens Utilizadas: JavaScript (servidor e lógica).
 
 - CRUD de Comidas:
@@ -43,14 +46,15 @@ Requisitos Funcionais:
 
 .
 Requisitos Não Funcionais:
+
 - O sistema deve apresentar desempenho rápido e eficiente.
 - Os dois módulos (comidas e clientes) devem funcionar de forma integrada e comunicar-se entre si sem falhas.
 
-----------------------------------------------------------------------------------------------------
+---
 
 PLANEJAMENTO:
 
-Entrega 1: 
+Entrega 1:
 
 -> Planejamento, descrição geral do sistema, requisitos funcionais e não funcionais listados;
 -> Criação do Repositório
@@ -68,8 +72,5 @@ Entrega 2:
 
 Entrega 3:
 
-->  Os 2 Padrões Comportamentais adicionados;
+-> Os 2 Padrões Comportamentais adicionados;
 -> Implementação do Front-End.
-
-
-
