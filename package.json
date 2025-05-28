@@ -1,14 +1,14 @@
 {
-  "name": "crud_aluno",
+  "name": "lancheira_come_mais",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js",
+    "start": "node app.js",
     "test": "jest --coverage"
   },
   "keywords": [],
-  "author": "Lisandro Rezende",
-  "email": "rezendecazuza@gmil.com",
+  "author": "Lisandro Rezende e Gabriel Menezes Rehbein",
+  "email": "rezendecazuza@gmail.com",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
