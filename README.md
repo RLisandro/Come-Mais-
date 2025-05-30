@@ -6,11 +6,11 @@ Controll serve: Controlador trata requisições e chama funções de serviço
 2 Padrão Criacional Utilizado para o clientes.js e lanches.js:
 Modulo de serviço(Serve Layer):Camada de lógica de negócio separada das rotas ou controladores
 
-1 Padrão Estrutural utilizado:
+1 Padrão Estrutural utilizado (sistema.js):
 
 Facade – fornece uma interface simplificada para um conjunto de interfaces no subsistema, facilitando a integração entre os módulos de comidas e clientes.
 
-2 Padrão Estrutural utilizado:
+2 Padrão Estrutural utilizado (está implementado no lanches.js e no clientes.js):
 
 Module – encapsula funcionalidades (como clienteFactory e comidaFactory) em unidades independentes e reutilizáveis, com escopo controlado.
 
@@ -67,6 +67,7 @@ Entrega 1:
 Entrega 2:
 
 -> Os 2 Padrões Estruturados adicionados;
+-> Criado o arquivo sistema.js para o Padrão E Facade
 -> Atualização do código com mais funcionalidades;
 -> Testes unitários para cobrir novos objetos criados.
 

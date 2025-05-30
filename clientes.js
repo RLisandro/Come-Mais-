@@ -1,50 +1,50 @@
-const {
-  validarLanchesSelecionados
-} = require("./lanches");
+const lanches = require("./lanches");
 
-let clientes = [];
-let proximoId = 1;
+module.exports = (() => {
+  let clientes = [];
+  let proximoId = 1;
 
-function listarClientes() {
-  return clientes;
-}
+  function listarClientes() {
+    return clientes;
+  }
 
-function buscarClientePorId(id) {
-  return clientes.find(c => c.id === id);
-}
+  function buscarClientePorId(id) {
+    return clientes.find(c => c.id === id);
+  }
 
-function adicionarCliente(nome, lanches) {
-  const validacao = validarLanchesSelecionados(lanches);
-  if (validacao !== true) return { erro: validacao };
+  function adicionarCliente(nome, lanchesSelecionados) {
+    const validacao = lanches.validarSelecionados(lanchesSelecionados);
+    if (validacao !== true) return { erro: validacao };
 
-  const novo = { id: proximoId++, nome, lanches };
-  clientes.push(novo);
-  return novo;
-}
+    const novo = { id: proximoId++, nome, lanches: lanchesSelecionados };
+    clientes.push(novo);
+    return novo;
+  }
 
-function atualizarCliente(id, nome, lanches) {
-  const cliente = clientes.find(c => c.id === id);
-  if (!cliente) return null;
+  function atualizarCliente(id, nome, lanchesSelecionados) {
+    const cliente = clientes.find(c => c.id === id);
+    if (!cliente) return null;
 
-  const validacao = validarLanchesSelecionados(lanches);
-  if (validacao !== true) return { erro: validacao };
+    const validacao = lanches.validarSelecionados(lanchesSelecionados);
+    if (validacao !== true) return { erro: validacao };
 
-  cliente.nome = nome;
-  cliente.lanches = lanches;
-  return cliente;
-}
+    cliente.nome = nome;
+    cliente.lanches = lanchesSelecionados;
+    return cliente;
+  }
 
-function removerCliente(id) {
-  const index = clientes.findIndex(c => c.id === id);
-  if (index === -1) return false;
-  clientes.splice(index, 1);
-  return true;
-}
+  function removerCliente(id) {
+    const index = clientes.findIndex(c => c.id === id);
+    if (index === -1) return false;
+    clientes.splice(index, 1);
+    return true;
+  }
 
-module.exports = {
-  listarClientes,
-  buscarClientePorId,
-  adicionarCliente,
-  atualizarCliente,
-  removerCliente
-};
+  return {
+    listarClientes,
+    buscarClientePorId,
+    adicionarCliente,
+    atualizarCliente,
+    removerCliente
+  };
+})();
