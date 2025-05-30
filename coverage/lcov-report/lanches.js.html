@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.66% </span>
+                <span class="strong">92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/24</span>
+                <span class='fraction'>23/25</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>18/18</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
@@ -110,7 +110,10 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,53 +160,56 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">let lanches = [
-  { id: 1, nome: "Hambúrguer" },
-  { id: 2, nome: "Pizza" },
-  { id: 3, nome: "Cachorro-quente" },
-  { id: 4, nome: "Pastel" },
-  { id: 5, nome: "Coxinha" },
-  { id: 6, nome: "Sanduíche" }
-];
-let proximoId = 7;
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">module.exports = (() =&gt; {
+  let lanches = [
+    { id: 1, nome: "Hambúrguer" },
+    { id: 2, nome: "Pizza" },
+    { id: 3, nome: "Cachorro-quente" },
+    { id: 4, nome: "Pastel" },
+    { id: 5, nome: "Coxinha" },
+    { id: 6, nome: "Sanduíche" }
+  ];
+  let proximoId = 7;
 &nbsp;
-function listarLanches() {
-  return lanches;
-}
+  function listarLanches() {
+    return lanches;
+  }
 &nbsp;
-function adicionarLanche(nome) {
-  const novo = { id: proximoId++, nome };
-  lanches.push(novo);
-  return novo;
-}
+  function adicionarLanche(nome) {
+    const novo = { id: proximoId++, nome };
+    lanches.push(novo);
+    return novo;
+  }
 &nbsp;
-function atualizarLanche(id, nome) {
-  const lanche = lanches.find(l =&gt; l.id === id);
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!lanche) <span class="cstat-no" title="statement not covered" >return null;</span>
-  lanche.nome = nome;
-  return lanche;
-}
+  function atualizarLanche(id, nome) {
+    const lanche = lanches.find(l =&gt; l.id === id);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!lanche) <span class="cstat-no" title="statement not covered" >return null;</span>
+    lanche.nome = nome;
+    return lanche;
+  }
 &nbsp;
-function removerLanche(id) {
-  const index = lanches.findIndex(l =&gt; l.id === id);
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (index === -1) <span class="cstat-no" title="statement not covered" >return false;</span>
-  lanches.splice(index, 1);
-  return true;
-}
+  function removerLanche(id) {
+    const index = lanches.findIndex(l =&gt; l.id === id);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (index === -1) <span class="cstat-no" title="statement not covered" >return false;</span>
+    lanches.splice(index, 1);
+    return true;
+  }
 &nbsp;
-function validarLanchesSelecionados(selecionados) {
-  const nomes = lanches.map(l =&gt; l.nome);
-  const invalidos = selecionados.filter(nome =&gt; !nomes.includes(nome));
-  return invalidos.length === 0 ? true : invalidos;
-}
+  function validarLanchesSelecionados(selecionados) {
+    const nomes = lanches.map(l =&gt; l.nome);
+    const invalidos = selecionados.filter(nome =&gt; !nomes.includes(nome));
+    return invalidos.length === 0 ? true : invalidos;
+  }
 &nbsp;
-module.exports = {
-  listarLanches,
-  adicionarLanche,
-  atualizarLanche,
-  removerLanche,
-  validarLanchesSelecionados
-};
+  return {
+    listarLanches,
+    adicionarLanche,
+    atualizarLanche,
+    removerLanche,
+    validarLanchesSelecionados
+  };
+})();
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -211,7 +217,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-28T20:58:22.575Z
+                at 2025-05-30T21:22:57.164Z
             </div>
         <script src="prettify.js"></script>
         <script>

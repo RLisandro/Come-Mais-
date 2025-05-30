@@ -9,11 +9,11 @@ module.exports = (() => {
   }
 
   function buscarClientePorId(id) {
-    return clientes.find(c => c.id === id);
+    return clientes.find((c) => c.id === id);
   }
 
   function adicionarCliente(nome, lanchesSelecionados) {
-    const validacao = lanches.validarSelecionados(lanchesSelecionados);
+    const validacao = lanches.validarLanchesSelecionados(lanchesSelecionados);
     if (validacao !== true) return { erro: validacao };
 
     const novo = { id: proximoId++, nome, lanches: lanchesSelecionados };
@@ -22,10 +22,10 @@ module.exports = (() => {
   }
 
   function atualizarCliente(id, nome, lanchesSelecionados) {
-    const cliente = clientes.find(c => c.id === id);
+    const cliente = clientes.find((c) => c.id === id);
     if (!cliente) return null;
 
-    const validacao = lanches.validarSelecionados(lanchesSelecionados);
+    const validacao = lanches.validarLanchesSelecionados(lanchesSelecionados);
     if (validacao !== true) return { erro: validacao };
 
     cliente.nome = nome;
@@ -34,7 +34,7 @@ module.exports = (() => {
   }
 
   function removerCliente(id) {
-    const index = clientes.findIndex(c => c.id === id);
+    const index = clientes.findIndex((c) => c.id === id);
     if (index === -1) return false;
     clientes.splice(index, 1);
     return true;

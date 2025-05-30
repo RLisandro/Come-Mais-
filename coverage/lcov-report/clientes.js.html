@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.65% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/29</span>
+                <span class='fraction'>27/30</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>23/23</span>
             </div>
         
             
@@ -113,10 +113,9 @@
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,56 +162,57 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const {
-  validarLanchesSelecionados
-} = require("./lanches");
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const lanches = require("./lanches");
 &nbsp;
-let clientes = [];
-let proximoId = 1;
+module.exports = (() =&gt; {
+  let clientes = [];
+  let proximoId = 1;
 &nbsp;
-function listarClientes() {
-  return clientes;
-}
+  function listarClientes() {
+    return clientes;
+  }
 &nbsp;
-function buscarClientePorId(id) {
-  return clientes.find(c =&gt; c.id === id);
-}
+  function buscarClientePorId(id) {
+    return clientes.find((c) =&gt; c.id === id);
+  }
 &nbsp;
-function adicionarCliente(nome, lanches) {
-  const validacao = validarLanchesSelecionados(lanches);
-  if (validacao !== true) return { erro: validacao };
+  function adicionarCliente(nome, lanchesSelecionados) {
+    const validacao = lanches.validarLanchesSelecionados(lanchesSelecionados);
+    if (validacao !== true) return { erro: validacao };
 &nbsp;
-  const novo = { id: proximoId++, nome, lanches };
-  clientes.push(novo);
-  return novo;
-}
+    const novo = { id: proximoId++, nome, lanches: lanchesSelecionados };
+    clientes.push(novo);
+    return novo;
+  }
 &nbsp;
-function atualizarCliente(id, nome, lanches) {
-  const cliente = clientes.find(c =&gt; c.id === id);
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!cliente) <span class="cstat-no" title="statement not covered" >return null;</span>
+  function atualizarCliente(id, nome, lanchesSelecionados) {
+    const cliente = clientes.find((c) =&gt; c.id === id);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!cliente) <span class="cstat-no" title="statement not covered" >return null;</span>
 &nbsp;
-  const validacao = validarLanchesSelecionados(lanches);
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (validacao !== true) <span class="cstat-no" title="statement not covered" >return { erro: validacao };</span>
+    const validacao = lanches.validarLanchesSelecionados(lanchesSelecionados);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (validacao !== true) <span class="cstat-no" title="statement not covered" >return { erro: validacao };</span>
 &nbsp;
-  cliente.nome = nome;
-  cliente.lanches = lanches;
-  return cliente;
-}
+    cliente.nome = nome;
+    cliente.lanches = lanchesSelecionados;
+    return cliente;
+  }
 &nbsp;
-function removerCliente(id) {
-  const index = clientes.findIndex(c =&gt; c.id === id);
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (index === -1) <span class="cstat-no" title="statement not covered" >return false;</span>
-  clientes.splice(index, 1);
-  return true;
-}
+  function removerCliente(id) {
+    const index = clientes.findIndex((c) =&gt; c.id === id);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (index === -1) <span class="cstat-no" title="statement not covered" >return false;</span>
+    clientes.splice(index, 1);
+    return true;
+  }
 &nbsp;
-module.exports = {
-  listarClientes,
-  buscarClientePorId,
-  adicionarCliente,
-  atualizarCliente,
-  removerCliente
-};
+  return {
+    listarClientes,
+    buscarClientePorId,
+    adicionarCliente,
+    atualizarCliente,
+    removerCliente
+  };
+})();
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -220,7 +220,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-28T20:58:22.575Z
+                at 2025-05-30T21:22:57.164Z
             </div>
         <script src="prettify.js"></script>
         <script>
