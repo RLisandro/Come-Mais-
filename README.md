@@ -16,11 +16,11 @@ Module – encapsula funcionalidades (como clienteFactory e comidaFactory) em un
 
 1 Padrão Comportamental utilizado:
 
-Observer – notifica automaticamente componentes (por exemplo, um painel de pedidos ou sistema de notificações) quando há alterações nos dados de comidas ou clientes.
+Observer (dentro do arquivo observer) – notifica automaticamente componentes (por exemplo, um painel de pedidos ou sistema de notificações) quando há alterações nos dados de comidas ou clientes.
 
 2 Padrão Comportamental utilizado:
 
-Strategy – encapsula algoritmos de negócio como cálculo de descontos, formas de pagamento, ou regras de fidelidade, permitindo trocar a lógica sem alterar o sistema principal.
+Strategy (dentro do arquivo strategies) – encapsula algoritmos de negócio como cálculo de descontos, formas de pagamento, ou regras de fidelidade, permitindo trocar a lógica sem alterar o sistema principal.
 
 Ferramenta de teste utilizada no projeto (clientes.js e lanches.js):
 

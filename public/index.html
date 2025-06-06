@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistema de Clientes e Lanches</title>
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <link rel="stylesheet" href="animation.css" />
+  
+  <!-- Fontes e Ícones -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <h1>Sistema de Gestão</h1>
+    <nav>
+      <button id="tab-clientes" class="tab active" aria-label="Clientes">
+        <i class="fas fa-user"></i> Clientes
+      </button>
+      <button id="tab-lanches" class="tab" aria-label="Lanches">
+        <i class="fas fa-hamburger"></i> Lanches
+      </button>
+      <button id="tab-cardapio" class="tab" aria-label="Cardápio">
+        <i class="fas fa-utensils"></i> Cardápio
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- CLIENTES -->
+    <section id="clientes-section" class="section active" aria-labelledby="clientes-titulo">
+      <h2 id="clientes-titulo"><i class="fas fa-users"></i> Gerenciar Clientes</h2>
+
+      <form id="form-cliente" class="form">
+        <label for="cliente-nome">Nome do cliente:</label>
+        <input type="text" id="cliente-nome" placeholder="Ex: Ana Paula" required />
+
+        <label for="cliente-lanches">Lanches (1 a 3):</label>
+        <select multiple id="cliente-lanches" required aria-multiselectable="true"></select>
+
+        <button type="submit" class="btn-submit">
+          <i class="fas fa-plus-circle"></i> Adicionar Cliente
+        </button>
+      </form>
+
+      <ul id="lista-clientes" class="card-list" aria-live="polite"></ul>
+    </section>
+
+    <!-- LANCHES -->
+    <section id="lanches-section" class="section" aria-labelledby="lanches-titulo">
+      <h2 id="lanches-titulo"><i class="fas fa-bread-slice"></i> Gerenciar Lanches</h2>
+
+      <form id="form-lanche" class="form">
+        <label for="lanche-nome">Nome do lanche:</label>
+        <input type="text" id="lanche-nome" placeholder="Ex: X-Bacon" required />
+        <button type="submit" class="btn-submit">
+          <i class="fas fa-plus-circle"></i> Adicionar Lanche
+        </button>
+      </form>
+
+      <ul id="lista-lanches" class="card-list" aria-live="polite"></ul>
+    </section>
+
+    <!-- CARDÁPIO -->
+    <section id="cardapio-section" class="section" aria-labelledby="cardapio-titulo">
+      <h2 id="cardapio-titulo"><i class="fas fa-utensils"></i> Cardápio de Lanches</h2>
+      <ul id="lista-cardapio" class="card-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Gabriel | Sistema de Gestão</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+.tab:hover,
+.tab.active {
+  color: #38bdf8;
+  border-color: #38bdf8;
+  transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #0ea5e9;
+  transition: background-color 0.3s ease;
+}
+
+.card .btn:hover {
+  background-color: #cbd5e1;
+  transition: background-color 0.2s ease;
+}
+
+.card .btn-delete:hover {
+  background-color: #ef4444;
+  transition: background-color 0.2s ease;
+}

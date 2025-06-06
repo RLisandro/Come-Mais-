@@ -1,3 +1,6 @@
+const ObserverManager = require("./observer/observerManager");
+const { LogClienteObserver } = require("./observer/clienteObserver");
+
 module.exports = (() => {
   let lanches = [
     { id: 1, nome: "Hambúrguer" },
@@ -9,41 +12,36 @@ module.exports = (() => {
   ];
   let proximoId = 7;
 
+  const observerManager = new ObserverManager();
+  observerManager.adicionar(new LogClienteObserver());
+
   function listarLanches() {
     return lanches;
+  }
+
+  function listarNomesLanches() {
+    return lanches.map(l => l.nome);
   }
 
   function adicionarLanche(nome) {
     const novo = { id: proximoId++, nome };
     lanches.push(novo);
+    observerManager.notificar("lanche_adicionado", novo);
     return novo;
-  }
-
-  function atualizarLanche(id, nome) {
-    const lanche = lanches.find(l => l.id === id);
-    if (!lanche) return null;
-    lanche.nome = nome;
-    return lanche;
   }
 
   function removerLanche(id) {
     const index = lanches.findIndex(l => l.id === id);
     if (index === -1) return false;
-    lanches.splice(index, 1);
+    const removido = lanches.splice(index, 1)[0];
+    observerManager.notificar("lanche_removido", removido);
     return true;
-  }
-
-  function validarLanchesSelecionados(selecionados) {
-    const nomes = lanches.map(l => l.nome);
-    const invalidos = selecionados.filter(nome => !nomes.includes(nome));
-    return invalidos.length === 0 ? true : invalidos;
   }
 
   return {
     listarLanches,
+    listarNomesLanches,
     adicionarLanche,
-    atualizarLanche,
-    removerLanche,
-    validarLanchesSelecionados
+    removerLanche
   };
 })();
