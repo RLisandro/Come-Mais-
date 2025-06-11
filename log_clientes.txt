@@ -1,0 +1,1 @@
+[2025-06-11T10:16:14.286Z] Evento: cliente_adicionado | Nome: Gabriel
